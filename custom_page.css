@@ -1,0 +1,140 @@
+:root {
+    --accent_green: #97BF0D;
+    --arrow_size: 50px;
+    --pulse_size: 70px;
+    --arrow_border_rad: 50%;
+}
+
+
+
+.trans_row {
+    margin-left: -5000px;
+    margin-right: -5000px;
+    padding-left: 5000px;
+    padding-right: 5000px;
+    background: rgba(0, 0, 0, 0.6);
+    margin-bottom: 100px;
+    min-height:300px;
+    padding-bottom:20px;
+
+}
+
+
+h2 {
+    padding-top: 100px;
+    font-size: 40px;
+    letter-spacing: -0.05em;
+    line-height: 52px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+hr {
+    margin: 15px auto;
+    color: var(--accent_green);
+    width: 150px;
+}
+
+h3 {
+    font-weight: 300;
+    padding: 10px 0 20px 0;
+    text-align: center;
+}
+
+
+#title {
+    font-size: 60px;
+    margin-top: 55%;
+    margin-bottom: 55%;
+    line-height: 1;
+}
+
+
+
+#arrow-inner, #arrow-border {
+    border-radius: var(--arrow_border_rad);
+    display: inline-block;
+    box-sizing: content-box;
+}
+
+#arrow-inner{
+    position: absolute;
+}
+
+#arrow-inner {
+    background: var(--accent_green);
+    width: var(--arrow_size);
+    height: var(--arrow_size);
+}
+
+#arrow-border {
+    margin-top: 4px;
+    border: solid 1px black;
+    width: 40px;
+    height: 40px;
+}
+
+#arrow-inner a {
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    top: 25%;
+    bottom: 25%;
+}
+
+
+#arrow-pulse {
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-name: pulsate;
+    background: white;
+    border-radius: var(--arrow_border_rad);
+    width: var(--pulse_size);
+    height: var(--pulse_size);
+    opacity: 0.5;
+    z-index: -1;
+    margin-top: -10px;
+}
+
+#arrow-container {
+    display: flex;
+    justify-content: center;
+}
+
+#intro {
+    margin-bottom: 50%;
+}
+
+@keyframes pulsate {
+    0% {
+        opacity: 0;
+        transform: scale3d(.4, .4, .4);
+    }
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    #arrow-container {
+        display: None !important;
+    }
+
+    #title {
+        font-size: 30px;
+        margin-top: 100px;
+        margin-bottom: 0px;
+
+    }
+}
+
+
+
