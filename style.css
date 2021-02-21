@@ -1,12 +1,18 @@
-/* Theme Name: Needled X Theme URI: https://github.com/vossenv/needled description: Blogrid Child Theme Author: Danimae Vossen Author URI: https://github.com/vossenv/needled Template: blogrid Version: 1.0.0 License: GNU General Public License v2 or later License URI: https://www.gnu.org/licenses/gpl-3.0.en.html Tags: blog, news, right-sidebar, post-formats, custom-background, custom-logo, custom-menu, featured-images, threaded-comments, sticky-post, translation-ready */
-/* body {
-     scroll-behavior: smooth;
-     max-width: 100%;
-     overflow-x: hidden;
-}
- */
+/* Theme Name: Needled 24/7
+Theme URI: https://github.com/vossenv/needled
+description: Blogrid Child Theme
+Author: Danimae Vossen Author
+URI: https://github.com/vossenv/needled
+Template: blogrid
+Version: 1.0.0
+License:
+GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
+Tags: blog, news, right-sidebar, post-formats, custom-background, custom-logo, custom-menu, featured-images, threaded-comments, sticky-post, translation-ready */
+
 .top-nav-wrapper {
-    background-color: transparent
+    background-color: transparent;
+    box-shadow: None;
 }
 
 .logo-container img, a.custom-logo-link {
@@ -80,7 +86,7 @@ nav a:hover, #logo:hover {
 }
 
 .site-header {
-    position: sticky !important;
+    position: fixed !important;
     top: 0;
 }
 
@@ -112,6 +118,11 @@ nav a:hover, #logo:hover {
 body {
     scroll-behavior: smooth;
     max-width: 100%;
+    overflow-x: hidden;
+}
+
+html,
+body {
     overflow-x: hidden;
 }
 

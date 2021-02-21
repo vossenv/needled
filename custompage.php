@@ -23,7 +23,7 @@ get_header(); ?>
 
 <?php
 wp_enqueue_style( 'custom-page-css', get_theme_file_uri( 'custom_page.css' ) );
-wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/test.js', array( 'jquery' ),'',true );
+wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/tp_page.js', array( 'jquery' ),'',true );
 //get_sidebar();
 get_footer();
 
