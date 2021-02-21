@@ -71,7 +71,8 @@ h3 {
 }
 
 #arrow-container {
-    margin-top: 40%;
+    margin-top: 20vh;
+    /*     margin-top: 40%; */
 }
 
 #arrow-inner, #arrow-border, #arrow-container, #intro {
@@ -83,6 +84,7 @@ h3 {
 }
 
 #intro {
+    padding-top: 15vh;
     height: 100vh;
 }
 
