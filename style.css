@@ -10,14 +10,42 @@ GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Tags: blog, news, right-sidebar, post-formats, custom-background, custom-logo, custom-menu, featured-images, threaded-comments, sticky-post, translation-ready */
 
+:root {
+    --delay: 0.0s;
+    --time: 0.3s;
+}
+
+
+#intersect {
+    visibility:hidden;
+}
+
 .top-nav-wrapper {
     background-color: transparent;
     box-shadow: None;
 }
 
-.logo-container img, a.custom-logo-link {
-    height: 80px !important;
-    width: 80px;
+.center-main-menu {
+    line-height: 1;
+}
+
+.center-main-menu[stuck] {
+    line-height: 0;
+}
+
+.logo-container img{
+    -webkit-transition: all var(--time);
+    transition: all var(--time);
+    transition-delay: var(--delay);
+    height: 80px;
+
+}
+
+.logo-container img[stuck]{
+    -webkit-transition: all var(--time);
+    transition: all var(--time);
+    transition-delay: var(--delay);
+    height: 40px;
 }
 
 .front_page {
@@ -38,15 +66,12 @@ footer {
     display: None !important;
 }
 
-.primary-menu .pmenu {
+
+.primary-menu .pmenu, .super-menu.clearfix, #smobile-menu {
     background-color: transparent;
 }
 
-.super-menu.clearfix, #smobile-menu {
-    background-color: transparent;
-}
-
-.main-navigation ul li a, .toggle-mobile-menu:before, .page article .entry-content, .posts-entryn, .fbox h1, .fbox h2, .fbox h3, .fbox h4, .fbox h5 {
+.main-navigation ul li a, a, .toggle-mobile-menu:before, .page article .entry-content, .posts-entryn, .fbox h1, .fbox h2, .fbox h3, .fbox h4, .fbox h5 {
     color: white;
 }
 
@@ -101,10 +126,6 @@ nav a:hover, #logo:hover {
 }
 
 @media all and (max-width: 1023px) {
-    header {
-        position: fixed;
-    }
-
     #pull, .super-menu-inner {
         visibility: visible;
     }
@@ -112,6 +133,11 @@ nav a:hover, #logo:hover {
     .logo-container img, a.custom-logo-link {
         height: 50px !important;
         width: 50px;
+    }
+
+    #main {
+        width: 120% !important;
+        margin-left: -10%;
     }
 }
 
@@ -146,6 +172,39 @@ article .entry-content {
 
 html {
     min-height: 100%;
-    box-shadow: inset 0 0 0 2000px #0f0f0f8a !important;
+    box-shadow: inset 0 0 0 2000px #000000f2 !important;
 
 }
+
+
+/* XXXXXXXXXXXXXXX */
+
+.single-post #secondary, #comments {
+    display: None;
+}
+
+.single-post #primary {
+    width: 100%;
+    margin-top: 10%;
+}
+
+
+.single-post .featured-thumbnail {
+    position: inherit;
+}
+.single-post .featured-thumbnail img {
+    margin-top: 50px;
+    height: 30vh;
+    width: auto;
+}
+
+.single-post article {
+    background-color: transparent;
+}
+
+
+p, h1, h2, h3, h4, h5 {
+    color: white !important;
+}
+
+
