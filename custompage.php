@@ -6,9 +6,6 @@ get_header(); ?>
 		<main id="main" class="site-main">
 
             <div id="title">WE ARE <b>TRIGGERED PAIN.TZ</b></div>
-            <div id="news">
-                <?php echo do_shortcode('[masterslider alias="ms-2"]'); ?>
-            </div>
 
             <div id="intro">
                 <div id="arrow-container">
@@ -19,6 +16,13 @@ get_header(); ?>
                     </div>
                 </div>
             </div>
+
+
+            <div id="news">
+                <?php echo do_shortcode('[masterslider alias="ms-2"]'); ?>
+            </div>
+
+
 
 
 
