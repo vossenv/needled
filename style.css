@@ -15,6 +15,9 @@ Tags: blog, news, right-sidebar, post-formats, custom-background, custom-logo, c
     --time: 0.3s;
 }
 
+b, body {
+    color: white;
+}
 
 #intersect {
     visibility:hidden;
@@ -207,4 +210,6 @@ p, h1, h2, h3, h4, h5 {
     color: white !important;
 }
 
-
+#test-content{
+    margin-top: 200px;
+}
