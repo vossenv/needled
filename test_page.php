@@ -2,12 +2,12 @@
 error_log("XXXX");
 
 
-function writeMsg() {
+function writeMsg()
+{
     echo "Hello world!";
 }
 
-
-function get_players($args = null )
+function get_players($args = null)
 {
     $defaults = array(
         'numberposts' => 5,
@@ -48,89 +48,100 @@ function get_players($args = null )
 }
 
 
-function parse_results( $results )
+class Player
 {
+    public $name;
+    public $join_date;
+    public $marker;
+    public $gender;
+    public $birth_date;
+    public $position;
+    public $ordering;
+    public $picture_front;
+    public $picture_back;
+    public $age;
 
 
+    /**
+     * Player constructor.
+     * @param $name
+     * @param $join_date
+     * @param $marker
+     * @param $gender
+     * @param $birth_date
+     * @param $position
+     * @param $ordering
+     * @param $picture_front
+     * @param $picture_back
+     */
+    public function __construct($name,
+                                $join_date,
+                                $marker,
+                                $gender,
+                                $birth_date,
+                                $position,
+                                $ordering,
+                                $picture_front,
+                                $picture_back
+    )
+    {
+        $this->name = $name;
+        $this->join_date = $join_date;
+        $this->marker = $marker;
+        $this->gender = $gender;
+        $this->birth_date = $birth_date;
+        $this->position = $position;
+        $this->ordering = (int)$ordering;
+        $this->picture_front = $picture_front;
+        $this->picture_back = $picture_back;
+        $this->age = $this->to_age($this->to_date($birth_date))->format('%Y');
+    }
 
-   // $my_query = new WP_Query($parsed_args);
-    if ($results->have_posts()) {
+    function to_date($string)
+    {
+        return DateTime::createFromFormat("d/m/Y", $string);
+    }
 
+    function to_age($start_date)
+    {
+        $now = new DateTime();
+        return date_diff($start_date, $now);
+    }
 
-        while ($results->have_posts()) : $results->the_post();
-
-            $custom = get_post_custom();
-//            foreach($custom as $key => $value) {
-//                echo $key.': '.$value.'<br />';
-//            }
-//            if(isset($custom['name'])) {
-//                echo 'Name: '.$custom['name'][0];
-//            }
-//            echo '<br/>';
-//            if(isset($custom['age'])) {
-//                echo 'Age: '.$custom['age'][0];
-//            }
-//            echo '<br/>';
-//            if(isset($custom['gender'])) {
-//                echo 'Gender: '.$custom['gender'][0];
-//            }
-//            echo '<br/>';
-//            if(isset($custom['marker'])) {
-//                echo 'Marker: '.$custom['marker'][0];
-//            }
-//            echo '<br/>';
-//            if(isset($custom['join_date'])) {
-////                echo 'Joined: '.date("d/m/Y",$custom['join_date'][0]);
-//                $d = $custom['join_date'][0];
-//                //echo 'Joined: '.date("d/m/y",$d);
-//                echo 'Joined: '.$d;
-//            }
-//            echo '<br/>';
-//DateTime::createFromFormat("Y-m-d", $date);
-            $x = get_field('join_date1');
-
-            if(is_null($x)) {
-                echo "Null";
-
-            }
-            // $dateTime = DateTime::createFromFormat("d/m/Y", $x);
-
-
-
-           // $date = new DateTime('2000-01-01');
-
-           // echo $x ->format('Y-m-d H:i:s');
-//            $date = new DateTime('2000-01-01');
-        //    echo $dateTime ->format('Y-m-d H:i:s');
-
-//            if(isset($custom['picture'])) {
-//                echo 'Picture: '.$custom['picture'][0];
-//            }
-
-//            $image = get_field('picture');
-//            $size = 'full'; // (thumbnail, medium, large, full or custom size)
-//            if ($image) {
-//                echo $image['url'];
-//                //echo wp_get_attachment_image($image, $size);
-//            }
-            //echo the_field('picture');
-
-           // echo the_permalink();
-//            echo the_title();
-
-        endwhile;
+}
 
 
+function parse_players($results)
+{
+    $players = array();
+    foreach ($results as &$player) {
+        $id = $player->ID;
+        $p = new Player(
+            get_field('name', $id),
+            get_field('join_date', $id),
+            get_field('marker', $id),
+            get_field('gender', $id),
+            get_field('birth_date', $id),
+            get_field('position', $id),
+            get_field('ordering', $id),
+            get_field('picture_front', $id)["url"],
+            get_field('picture_back', $id)["url"]
+        );
+        $players[] = $p;
+    }
+    return $players;
+}
+
+
+function build_list()
+{
+    $r = get_players();
+    $q = parse_players($r);
+
+    foreach ($q as &$p) {
+        echo $p->age . "<br/>";
     }
 }
-
-function build_list(){
-    $r = get_players();
-    parse_results($r);
-}
-
-#$x = get_1posts();
-#error_log($x);
 
 
 get_header(); ?>
@@ -138,9 +149,8 @@ get_header(); ?>
     <div id="primary" class="front_page featured-content content-area">
         <main id="main" class="site-main">
             <div id="test-content">
-            <?php build_list();?>
+                <?php build_list(); ?>
             </div>
-
 
 
         </main><!-- #main -->
@@ -159,13 +169,13 @@ get_footer();
 //$the_query = new WP_Query( $args );
 //?>
 <?php //if ( $the_query->have_posts() ) : ?>
-<!--    --><?php //while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-<!--        <h2>--><?php //the_title(); ?><!--</h2>-->
-<!--        <div class="entry-content">-->
-<!--            --><?php //the_content(); ?>
-<!--        </div>-->
-<!--    --><?php //endwhile;
+    <!--    --><?php //while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+    <!--        <h2>--><?php //the_title(); ?><!--</h2>-->
+    <!--        <div class="entry-content">-->
+    <!--            --><?php //the_content(); ?>
+    <!--        </div>-->
+    <!--    --><?php //endwhile;
 //    wp_reset_postdata(); ?>
 <?php //else:  ?>
-<!--    <p>--><?php //_e( 'Sorry, no posts matched your criteria.' ); ?><!--</p>-->
+    <!--    <p>--><?php //_e( 'Sorry, no posts matched your criteria.' ); ?><!--</p>-->
 <?php //endif; ?>
