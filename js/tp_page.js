@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", function (e) {
     console.log("ready!");
 
@@ -14,4 +12,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
         {threshold: [1]}
     );
     observer.observe(document.getElementById('intersect'));
+
+    var x = document.getElementsByClassName("flip-card");
+     for (i = 0; i < x.length; i++) {
+        const r = x[i];
+        console.log(r)
+        r.addEventListener("click", function () {
+            r.toggleAttribute('flipped');
+        });
+    }
+
+
 });

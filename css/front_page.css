@@ -1,5 +1,5 @@
 :root {
-    --accent_green: #97BF0D;
+    --accent_green: #83bf0d;
     --box_color: white;
     --arrow_size: 50px;
     --pulse_size: 62px;
@@ -16,9 +16,6 @@
     margin-bottom: 10%;
     min-height: 300px;
     padding-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
 }
 
@@ -186,4 +183,111 @@ html {
     }
 
 
+}
+
+
+.player {
+    margin: 20px;
+}
+
+
+.field_names tbody {
+    border: solid 2px var(--accent_green);
+}
+
+/* top right bottom left */
+
+.field_names td {
+    padding: 1px 10px 1px 10px;
+}
+
+.field_name {
+    color: var(--accent_green);
+}
+
+.field_names tr {
+    background-color: black;
+    border: none;
+}
+
+.player {
+    display: inline-block;
+    min-height: 500px;
+}
+
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+    transition: all 500ms;
+    opacity: 0.7;
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+.flip-card:hover {
+    transition: all 500ms;
+    opacity: 1;
+}
+
+
+.flip-card[flipped] {
+    transition: all 500ms;
+    opacity: 1;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    -webkit-box-shadow: 0 0 5px var(--box_color);
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card[flipped] .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    min-height: 500px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+    color: white;
+    transform: rotateY(180deg);
+
+}
+
+#ptable {
+    width: 100%;
+    position: absolute;
+    bottom: -24px;
+    margin-bottom: 0;
+
+}
+
+.player-img {
+    box-shadow: inset 0 0 0 2px var(--box_color);
+    -moz-box-shadow: inset 0 0 2px var(--box_color);
 }

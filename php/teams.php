@@ -1,16 +1,9 @@
-<?php /* Template Name: Test Page */
-error_log("XXXX");
+<?php
 
-
-function writeMsg()
-{
-    echo "Hello world!";
-}
-
-function get_players($args = null)
+function query_players($args = null)
 {
     $defaults = array(
-        'numberposts' => 5,
+        'numberposts' => 0,
         'category' => 0,
         'orderby' => 'date',
         'order' => 'DESC',
@@ -133,49 +126,15 @@ function parse_players($results)
 }
 
 
-function build_list()
+function get_players()
 {
-    $r = get_players();
-    $q = parse_players($r);
-
-    foreach ($q as &$p) {
-        echo $p->age . "<br/>";
-    }
+    $player_list = parse_players(query_players());
+    usort($player_list, function ($a, $b) {
+        $x = $a -> ordering;
+        $y = $b -> ordering;
+        $x = $x <= 0 ? 1000 : $x;
+        $y = $y <= 0 ? 1000 : $y;
+        return $x > $y ? 1 : -1;
+    });
+    return $player_list;
 }
-
-
-get_header(); ?>
-
-    <div id="primary" class="front_page featured-content content-area">
-        <main id="main" class="site-main">
-            <div id="test-content">
-                <?php build_list(); ?>
-            </div>
-
-
-        </main><!-- #main -->
-    </div><!-- #primary -->
-
-
-<?php
-error_log("XXXX");
-wp_enqueue_style('custom-page-css', get_theme_file_uri('custom_page.css'));
-//get_sidebar();
-get_footer();
-
-//
-//<?php
-//$args = array( 'post_type' => 'movies', 'posts_per_page' => 10 );
-//$the_query = new WP_Query( $args );
-//?>
-<?php //if ( $the_query->have_posts() ) : ?>
-    <!--    --><?php //while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-    <!--        <h2>--><?php //the_title(); ?><!--</h2>-->
-    <!--        <div class="entry-content">-->
-    <!--            --><?php //the_content(); ?>
-    <!--        </div>-->
-    <!--    --><?php //endwhile;
-//    wp_reset_postdata(); ?>
-<?php //else:  ?>
-    <!--    <p>--><?php //_e( 'Sorry, no posts matched your criteria.' ); ?><!--</p>-->
-<?php //endif; ?>

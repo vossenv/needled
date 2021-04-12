@@ -4,7 +4,7 @@
 function childtheme_parent_styles() {
  
  // enqueue style
- wp_enqueue_style( 'parent', get_template_directory_uri().'/style.css' );                       
+ wp_enqueue_style( 'parent', get_template_directory_uri().'/style.css' );
 }
 add_action( 'wp_enqueue_scripts', 'childtheme_parent_styles');
 
@@ -26,14 +26,9 @@ function custom_upload_mimes ( $existing_mimes=array() ) {
 }
 add_filter('upload_mimes', 'custom_upload_mimes');
 
-function background_block_editor() {
-   wp_enqueue_style( 'custom-button-block-style', get_theme_file_uri( 'editor_css.css' ) );
-}
-add_action( 'enqueue_block_editor_assets', 'background_block_editor', 2);
-
 
 function load_js() {
-    wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/tp_page.js', array( 'jquery' ),'',true );
+    wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/tp_page.js', array( 'jquery' ),'',true );
 }
 add_action( 'wp_enqueue_scripts', 'load_js', 999);
 
