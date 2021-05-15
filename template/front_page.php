@@ -33,7 +33,7 @@ get_header(); ?>
 
             <div id="tp-slider-home"></div>
             <div id="triggeredpaintz" class="trans_row">
-                <h2>Who we are</h2>
+               <span class="section-title">Who we are</span>
 
                 <hr>
 
@@ -48,6 +48,7 @@ get_header(); ?>
             </div>
             <div id="teams" class="trans_row">
                 <span class="section-title">TP.tz Team</span><br/>
+                <hr>
                 <?php
                 $players = get_players();
                 foreach ($players as &$p) {
@@ -83,33 +84,23 @@ get_header(); ?>
 
             </div>
 
-
-            <!--            <section id="teams">-->
-            <!--                <h2>TP.tz Teams</h2>-->
-            <!--                <hr/>-->
-            <!--                <div>-->
-            <!--                    <details>-->
-            <!--                        <summary><img src="/" alt=""/></summary>-->
-            <!--                        <p>-->
-            <!--                            <span>Besonderes:</span> nichts<br/>-->
-            <!--                            <span>Dabei seit:</span> zu lange<br/>-->
-            <!--                            <span>Markierer:</span> Planet Ecplise CS2, Special Edition Hulk, irgendetwas<br/>-->
-            <!--                        </p>-->
-            <!--                    </details>-->
-            <!--                </div>-->
-            <!--            </section>-->
-
             <div id="paintball" class="trans_row section-title">
-                Paintball
+                <span class="section-title">Paintball</span>
+                <hr>
             </div>
             <div id="social" class="trans_row section-title">
-                Social
+                <span class="section-title">Social</span>
+                <hr>
             </div>
             <div id="events" class="trans_row section-title">
-                Events
+                <span class="section-title">Events</span>
+                <hr>
             </div>
             <div id="contact" class="trans_row section-title">
-                Contact
+                <span class="section-title">Contact</span>
+                <hr>
+                <p>Haben wir dein Interesse an unserem Team geweckt? Wir freuen uns auf deine Nachricht!</p>
+                <?php echo do_shortcode('[wpforms id="281"]'); ?>
             </div>
 
             <?php get_template_part('template-parts/content', 'single'); ?>

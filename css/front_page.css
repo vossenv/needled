@@ -1,5 +1,6 @@
 :root {
-    --accent_green: #83bf0d;
+    /*     --accent_green: #83bf0d; */
+    --accent_green: #97BF0D;
     --box_color: white;
     --arrow_size: 50px;
     --pulse_size: 62px;
@@ -31,7 +32,10 @@
 
 hr {
     background-color: var(--accent_green);
-    width: 150px;
+    width: 300px;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 
@@ -161,29 +165,6 @@ html {
     display: None;
 }
 
-@media all and (max-width: 800px) {
-
-    #title {
-        margin-top: 15vh;
-        font-size: 45px;
-    }
-
-    #arrow-container {
-        margin-top: 20vh;
-        margin-bottom: 40vh;
-
-    }
-
-    #news {
-        display: None;
-    }
-
-    #news-mobile {
-        display: block;
-    }
-
-
-}
 
 
 .player {
@@ -241,11 +222,11 @@ html {
 .flip-card-inner {
     position: relative;
     width: 100%;
-    height: 200px;
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
     -webkit-box-shadow: 0 0 5px var(--box_color);
+    min-height: 500px;
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
@@ -257,7 +238,6 @@ html {
 .flip-card-front, .flip-card-back {
     position: absolute;
     width: 100%;
-    height: 200px;
     min-height: 500px;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -290,4 +270,148 @@ html {
 .player-img {
     box-shadow: inset 0 0 0 2px var(--box_color);
     -moz-box-shadow: inset 0 0 2px var(--box_color);
+}
+
+.wpforms-form {
+    display: block;
+    /* margin-top: 50px; */
+}
+
+
+#contact form {
+    display: inline-block;
+    width: 800px;
+}
+
+#contact{
+    text-align: center;
+}
+
+#contact p {
+    padding: 0;
+    display: inline-block;
+    text-transform: None;
+    letter-spacing: normal;
+    font-size: 20px;
+    max-width: 80%;
+}
+
+#contact input,
+#contact textarea {
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid var(--accent_green);
+    transition: border 200ms linear;
+    border-radius: 8px;
+    color: white;
+    padding: 5px;
+    min-width: 100%;
+}
+
+
+#contact label {
+    text-align: left;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+    border: 2px solid white;
+}
+
+#contact textarea {
+    flex-grow: 3;
+    min-height: 50px;
+    margin-bottom: 25px;
+}
+
+#contact button {
+    background: var(--accent_green);
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 200ms linear;
+    border-radius: 8px;
+    font-size: 40px;
+    -webkit-box-shadow: 0 0 5px var(--box_color);
+    border: solid 2px white;
+    opacity: 1;
+
+}
+
+.wpforms-submit-container, #contact button {
+    margin-top: -70px !important;
+    margin-bottom: -10px !important;
+
+}
+
+#contact {
+    padding-bottom: 1px;
+}
+
+#contact button:hover {
+    color: #000000;
+}
+
+#contact button:focus, #contact button:active {
+    background: white;
+    color: #000000;
+}
+
+.wpforms-form label.wpforms-error {
+    color: white !important;
+}
+
+.wpforms-required-label {
+    color: var(--accent_green) !important;
+}
+
+
+.wpforms-confirmation-container-full {
+    margin: 0;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    border: solid 2px var(--accent_green);
+    text-transform: none;
+    font-size: 30px;
+    letter-spacing: normal;
+    display: inline-block;
+    max-width: 700px;
+    margin-bottom: 20px;
+}
+
+.wpforms-recaptcha-container > div {
+    text-align: center;
+    display: inline-block;
+}
+
+.g-recaptcha, iframe {
+    margin-bottom: -50px;
+    padding: 0;
+    overflow: hidden;
+}
+
+@media all and (max-width: 800px) {
+
+    #title {
+        margin-top: 15vh;
+        font-size: 45px;
+    }
+
+    #arrow-container {
+        margin-top: 20vh;
+        margin-bottom: 40vh;
+
+    }
+
+    #news {
+        display: None;
+    }
+
+    #news-mobile {
+        display: block;
+    }
+
+    #contact form{
+        width: 90%;
+    }
+
+
 }
