@@ -8,7 +8,9 @@ function get_player_row($name, $val)
 }
 
 get_header(); ?>
-
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0"
+            nonce="GUOYo3aV"></script>
     <div id="primary" class="front_page featured-content content-area">
         <main id="main" class="site-main">
 
@@ -33,7 +35,7 @@ get_header(); ?>
 
             <div id="tp-slider-home"></div>
             <div id="triggeredpaintz" class="trans_row">
-               <span class="section-title">Who we are</span>
+                <span class="section-title">Who we are</span>
 
                 <hr>
 
@@ -91,6 +93,18 @@ get_header(); ?>
             <div id="social" class="trans_row section-title">
                 <span class="section-title">Social</span>
                 <hr>
+
+                <div id="fb_social" class="social_col">
+                    <span class="social-title">Facebook</span>
+                    <div class="fb-page" data-href="https://www.facebook.com/TriggeredPaintz"
+                         data-tabs="timeline" data-width="" data-height="660" data-small-header="false"
+                         data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
+                </div>
+
+                <div id="instagram_social" class="social_col">
+                    <span class="social-title">Instagram</span>
+                    <?php echo do_shortcode('[wdi_feed id="1"]'); ?>
+                </div>
             </div>
             <div id="events" class="trans_row section-title">
                 <span class="section-title">Events</span>

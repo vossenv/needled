@@ -388,6 +388,31 @@ html {
     overflow: hidden;
 }
 
+
+.wdi_feed_container, .wdi_feed_item, .wdi_feed_wrapper, .wdi_photo_wrap_inner {
+    background-color: transparent;
+    background: none !important;
+    border: none !important;
+}
+
+
+.wdi_feed_item {
+    padding: 5px;
+}
+
+.fb-page {
+    margin-top: 25px;
+}
+
+.social_col {
+    width: 340px;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 20px
+
+}
+
+
 @media all and (max-width: 800px) {
 
     #title {
