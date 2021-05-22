@@ -115,11 +115,11 @@ get_header(); ?>
                 <span class="section-title">Contact</span>
                 <hr>
                 <p>Haben wir dein Interesse an unserem Team geweckt? Wir freuen uns auf deine Nachricht!</p>
-                <?php echo do_shortcode('[wpforms id="385"]'); ?>
+                <?php echo do_shortcode('[wpforms id="281"]'); ?>
             </div>
 
             <?php get_template_part('template-parts/content', 'single'); ?>
-            <?php echo do_shortcode('[wpforms id="281"]'); ?>
+
         </main><!-- #main -->
     </div><!-- #primary -->
 
