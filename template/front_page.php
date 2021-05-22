@@ -1,5 +1,6 @@
 <?php /* Template Name: Front Page */
 
+
 require get_stylesheet_directory() . '/php/teams.php';
 function get_player_row($name, $val)
 
@@ -97,7 +98,7 @@ get_header(); ?>
                 <div id="fb_social" class="social_col">
                     <span class="social-title">Facebook</span>
                     <div class="fb-page" data-href="https://www.facebook.com/TriggeredPaintz"
-                         data-tabs="timeline" data-width="" data-height="660" data-small-header="false"
+                         data-tabs="timeline" data-width="" data-height="664" data-small-header="false"
                          data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
                 </div>
 
@@ -114,11 +115,11 @@ get_header(); ?>
                 <span class="section-title">Contact</span>
                 <hr>
                 <p>Haben wir dein Interesse an unserem Team geweckt? Wir freuen uns auf deine Nachricht!</p>
-                <?php echo do_shortcode('[wpforms id="281"]'); ?>
+
             </div>
 
             <?php get_template_part('template-parts/content', 'single'); ?>
-
+            <?php echo do_shortcode('[wpforms id="281"]'); ?>
         </main><!-- #main -->
     </div><!-- #primary -->
 

@@ -158,7 +158,7 @@ html {
 }
 
 .ms-slide {
-    -webkit-box-shadow: 0 0 5px var(--box_color);
+    /*     -webkit-box-shadow: 0 0 5px var(--box_color); */
 }
 
 #news-mobile {
@@ -225,7 +225,7 @@ html {
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    -webkit-box-shadow: 0 0 5px var(--box_color);
+    /*     -webkit-box-shadow: 0 0 5px var(--box_color); */
     min-height: 500px;
 }
 
@@ -268,8 +268,9 @@ html {
 }
 
 .player-img {
-    box-shadow: inset 0 0 0 2px var(--box_color);
-    -moz-box-shadow: inset 0 0 2px var(--box_color);
+    border: solid 2px white;
+    /*     box-shadow: inset 0 0 0 2px var(--box_color);
+        -moz-box-shadow: inset 0 0 2px var(--box_color); */
 }
 
 .wpforms-form {
@@ -397,11 +398,11 @@ html {
 
 
 .wdi_feed_item {
-    padding: 5px;
+    padding: 6px 3px;
 }
 
 .fb-page {
-    margin-top: 25px;
+    margin-top: 21px;
 }
 
 .social_col {
@@ -412,6 +413,34 @@ html {
 
 }
 
+#fb_social {
+    margin-right: 2.5px;
+
+}
+#instagram_social {
+    margin-left: 2.7px;
+}
+
+.wdi_photo_wrap, .fb-page {
+    border: solid 2px #ffffff;
+    padding: 0 !important;
+
+}
+
+.wdi_photo_wrap:hover{
+    transition: all 100ms;
+    -webkit-box-shadow: 0 0 5px var(--box_color);
+}
+
+.tenweb-i  {
+    display: none !important;
+}
+
+.wdi_photo_img img{
+    height: 100% !important;
+    width: auto;
+    object-fit: cover;
+}
 
 @media all and (max-width: 800px) {
 
@@ -438,5 +467,19 @@ html {
         width: 90%;
     }
 
+    #fb_social {
+        margin-right: 0;
 
+    }
+    #instagram_social {
+        margin-left: 5px;
+    }
+
+}
+
+@media all and (max-width: 480px) {
+
+    .wdi_feed_item {
+        padding: 0;
+    }
 }

@@ -76,3 +76,5 @@ function cw_post_type_team() {
     register_post_type('team', $args);
 }
 add_action('init', 'cw_post_type_team');
+
+
