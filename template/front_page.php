@@ -55,10 +55,11 @@ get_header(); ?>
                 <?php
                 $players = get_players();
                 foreach ($players as &$p) {
-                    $img_f = is_null($p->picture_front) ?
-                        get_theme_file_uri('/img/team_anon_small.jpg') : $p->picture_front;
-                    $img_b = is_null($p->picture_back) ?
-                        get_theme_file_uri('/img/team_anon_small.jpg') : $p->picture_back;
+
+                    $img_f = $p['Front Picture'] == NULL ?
+                        get_theme_file_uri('/img/team_anon_small.jpg') : $p['Front Picture'];
+                    $img_b = $p['Back Picture'] == NULL ?
+                        get_theme_file_uri('/img/team_anon_small.jpg') : $p['Back Picture'];
 
                     echo "<div class='player'>";
                     echo '
@@ -69,13 +70,16 @@ get_header(); ?>
                             </div>
                             <div class="flip-card-back player-img" style="background-image: url(' . $img_b . ')">';
                     echo "<div id='ptable'><table class='field_names'>";
-                    get_player_row("Name:", $p->name);
-                    get_player_row("Join Date:", $p->join_date);
-                    get_player_row("Marker:", $p->marker);
-                    get_player_row("Gender:", $p->gender);
-                    get_player_row("Birthday:", $p->birth_date);
-                    get_player_row("Age:", $p->age);
-                    get_player_row("Position", $p->position);
+
+                    $skip = array("front picture", "back picture", "ordering");
+                    dlog(trim($p['Marker']));
+                    foreach ($p as $k => $v) {
+                        if (in_array(strtolower($k), $skip) || $v == NULL) {
+                            continue;
+                        }
+                        echo "<tr><td class='field_name'>" . $k . ":</td><td>" . $v . "</td></tr>";
+                    }
+
                     echo "</table></div>";
                     echo '</div>
                         </div>
@@ -83,6 +87,8 @@ get_header(); ?>
                 ';
                     echo "</div>";
                 }
+
+
                 ?>
 
             </div>
