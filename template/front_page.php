@@ -51,12 +51,13 @@ get_header(); ?>
             </div>
             <div id="verein" class="trans_row">
                 <span class="section-title">TP.tz Verein</span><br/>
-                <hr><br/>
+                <hr>
+                <br/>
                 <?php
                 $depts_players = players_by_dept();
-                foreach ($depts_players as &$v){
+                foreach ($depts_players as &$v) {
 
-                    echo '<div classs="department"><span class="dept-title">'.$v['department'].'<br/></span>';
+                    echo '<div classs="department"><span class="dept-title">' . $v['department'] . '<br/></span>';
 
                     foreach ($v['players'] as &$p) {
 
@@ -95,47 +96,6 @@ get_header(); ?>
                     echo "</div>";
 
                 }
-
-
-
-
-
-
-//                foreach ($players as &$p) {
-//
-//                    $img_f = $p['Front Picture'] == NULL ?
-//                        get_theme_file_uri('/img/team_anon_small.jpg') : $p['Front Picture'];
-//                    $img_b = $p['Back Picture'] == NULL ?
-//                        get_theme_file_uri('/img/team_anon_small.jpg') : $p['Back Picture'];
-//
-//                    echo "<div class='player'>";
-//                    echo '
-//                    <div class="flip-card">
-//                        <div class="flip-card-inner">
-//                            <div class="flip-card-front player-img" style="background-image: url(' . $img_f . ')">
-//
-//                            </div>
-//                            <div class="flip-card-back player-img" style="background-image: url(' . $img_b . ')">';
-//                    echo "<div id='ptable'><table class='field_names'>";
-//
-//                    $skip = array("front picture", "back picture", "ordering");
-//
-//                    foreach ($p as $k => $v) {
-//                        if (in_array(strtolower($k), $skip) || $v == NULL) {
-//                            continue;
-//                        }
-//                        echo "<tr><td class='field_name'>" . $k . ":</td><td class='field_val'>" . $v . "</td></tr>";
-//                    }
-//
-//                    echo "</table></div>";
-//                    echo '</div>
-//                        </div>
-//                    </div>
-//                ';
-//                    echo "</div>";
-//                }
-
-
                 ?>
 
             </div>
