@@ -53,13 +53,19 @@ function parse_players($results)
     $players = array();
     $allow = array("text", "textarea", "number", "range",
         "email", "image", "date_picker", "date_time_picker",
-        "time_picker", "select", "checkbox");
+        "time_picker", "select", "checkbox", "true_false");
 
     foreach ($results as &$p) {
 
         $player = array();
         $fields = get_field_objects($p->ID);
+
+        if ($fields['visible']['value'] == NULL){
+            continue;
+        }
+
         foreach ($fields as $f) {
+
             if (!in_array($f['type'], $allow)) {
                 continue;
             }
@@ -76,6 +82,8 @@ function parse_players($results)
                 $player[$f['label']] = trim($f['value']);
             }
         }
+
+
         $players[] = $player;
     }
 

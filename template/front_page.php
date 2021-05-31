@@ -49,8 +49,8 @@ get_header(); ?>
 
                 </div>
             </div>
-            <div id="teams" class="trans_row">
-                <span class="section-title">TP.tz Team</span><br/>
+            <div id="verein" class="trans_row">
+                <span class="section-title">TP.tz Verein</span><br/>
                 <hr><br/>
                 <?php
                 $depts_players = players_by_dept();
@@ -75,7 +75,7 @@ get_header(); ?>
                             <div class="flip-card-back player-img" style="background-image: url(' . $img_b . ')">';
                         echo "<div id='ptable'><table class='field_names'>";
 
-                        $skip = array("front picture", "back picture", "ordering");
+                        $skip = array("front picture", "back picture", "ordering", "department", "visible");
 
                         foreach ($p as $k => $v) {
                             if (in_array(strtolower($k), $skip) || $v == NULL) {
@@ -89,8 +89,10 @@ get_header(); ?>
                         </div>
                     </div>
                 ';
-                        echo "</div></div>";
+                        echo "</div>";
                     }
+
+                    echo "</div>";
 
                 }
 
