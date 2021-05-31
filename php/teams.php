@@ -63,6 +63,13 @@ function parse_players($results)
             if (!in_array($f['type'], $allow)) {
                 continue;
             }
+
+            if ($f['name'] == 'department') {
+                $pos = array_search($f['value'], array_keys($f['choices']));
+                $player[$f['label']] = trim($pos . '-' . $f['value']);
+                continue;
+            }
+
             if ($f['name'] == 'picture_front' || $f['name'] == 'picture_back') {
                 $player[$f['label']] = $f['value']["url"];
             } else {
@@ -87,4 +94,27 @@ function get_players()
         return $x > $y ? 1 : -1;
     });
     return $player_list;
+}
+
+function players_by_dept()
+{
+    $all_players = get_players();
+    $dept_sorted = array();
+
+    foreach ($all_players as &$p) {
+        $pieces = explode("-", $p['Department']);
+        $order = $pieces[0];
+        $dept = $pieces[1];
+        $p['Department'] = $dept;
+        if (!array_key_exists($order, $dept_sorted)) {
+            $dept_sorted[$order] = array(
+                'department' => $dept,
+                'players' => array()
+            );
+        }
+        $dept_sorted[$order]['players'][] = $p;
+    }
+
+    ksort($dept_sorted);
+    return $dept_sorted;
 }

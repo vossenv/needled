@@ -21,12 +21,16 @@
 }
 
 
-.section-title {
+.section-title, .dept-title {
     font-size: 60px;
     letter-spacing: -0.05em;
     text-transform: uppercase;
     font-weight: 500;
     text-align: center;
+}
+
+.dept-title {
+    font-size: 30px;
 }
 
 
@@ -182,6 +186,10 @@ html {
     padding: 1px 10px 1px 10px;
 }
 
+.field_val {
+    word-break: break-all !important;
+}
+
 .field_name {
     color: var(--accent_green);
 }
@@ -195,6 +203,7 @@ html {
     display: inline-block;
     min-height: 500px;
 }
+
 
 
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
