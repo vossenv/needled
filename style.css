@@ -51,6 +51,15 @@ b, body {
     height: 40px;
 }
 
+.logo-container {
+    max-width: 10%;
+}
+
+.center-main-menu {
+    min-width: 90%;
+}
+
+
 .front_page {
     width: 100%;
     text-align: center;

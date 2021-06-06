@@ -29,11 +29,40 @@
     text-align: center;
 }
 
-.dept-title {
-    display: block;
-    font-size: 30px;
-    margin-top: 20px;
+.department {
+    text-align: center;
 }
+
+.dept-title {
+    display: inline-block;
+    font-size: 40px;
+    margin-top: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    min-width: 100%;
+}
+
+.darrow {
+    display: inline-block;
+    margin-left: 20px;
+    transform: rotate(-90deg);
+    transition: all 100ms;
+}
+
+.darrow[xhidden] {
+    transform: rotate(0deg);
+}
+
+.dept-title:hover {
+    color: var(--accent_green)
+}
+
+.dept-div[xhidden] {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+
 
 
 hr {
@@ -290,16 +319,16 @@ html {
 }
 
 
-#contact form {
+#kontakt form {
     display: inline-block;
     width: 800px;
 }
 
-#contact{
+#kontakt{
     text-align: center;
 }
 
-#contact p {
+#kontakt p {
     padding: 0;
     display: inline-block;
     text-transform: None;
@@ -308,8 +337,8 @@ html {
     max-width: 80%;
 }
 
-#contact input,
-#contact textarea {
+#kontakt input,
+#kontakt textarea {
     background: rgba(0, 0, 0, 0.4);
     border: 2px solid var(--accent_green);
     transition: border 200ms linear;
@@ -320,22 +349,22 @@ html {
 }
 
 
-#contact label {
+#kontakt label {
     text-align: left;
 }
 
-#contact input:focus,
-#contact textarea:focus {
+#kontakt input:focus,
+#kontakt textarea:focus {
     border: 2px solid white;
 }
 
-#contact textarea {
+#kontakt textarea {
     flex-grow: 3;
     min-height: 50px;
     margin-bottom: 25px;
 }
 
-#contact button {
+#kontakt button {
     background: var(--accent_green);
     color: #ffffff;
     cursor: pointer;
@@ -348,21 +377,21 @@ html {
 
 }
 
-.wpforms-submit-container, #contact button {
-    margin-top: -70px !important;
-    margin-bottom: -10px !important;
+.wpforms-submit-container, #kontakt button {
+    margin-top: -34px !important;
+    margin-bottom: 7px !important;
 
 }
 
-#contact {
+#kontakt {
     padding-bottom: 1px;
 }
 
-#contact button:hover {
+#kontakt button:hover {
     color: #000000;
 }
 
-#contact button:focus, #contact button:active {
+#kontakt button:focus, #kontakt button:active {
     background: white;
     color: #000000;
 }
@@ -375,6 +404,10 @@ html {
     color: var(--accent_green) !important;
 }
 
+.wpforms-container {
+    padding: 0 !important;
+    margin-top: -15px !important;
+}
 
 .wpforms-confirmation-container-full {
     margin: 0;
@@ -424,6 +457,15 @@ html {
 
 }
 
+.social-title {
+    font-size: 40px;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: center;
+}
+
+
 #fb_social {
     margin-right: 2.5px;
 
@@ -453,6 +495,29 @@ html {
     object-fit: cover;
 }
 
+
+tr, td {
+    border: none;
+}
+
+.impressum-text {
+    text-align: center;
+}
+#impressum-table {
+    margin-top: 30px;
+    display: inline-block;
+    max-width: 300px;
+}
+
+#impressum-table .field_name{
+    padding-right: 15px;
+}
+
+#impressum-table td {
+    padding: 1px;
+}
+
+
 @media all and (max-width: 800px) {
 
     #title {
@@ -474,7 +539,7 @@ html {
         display: block;
     }
 
-    #contact form{
+    #kontakt form{
         width: 90%;
     }
 
